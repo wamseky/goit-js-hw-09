@@ -90,8 +90,8 @@ function createCardMarkup() {
 
     listEl.innerHTML = markup;
 
-   const gallery = new SimpleLightbox('.gallery a', {
+  const gallery = new SimpleLightbox('.gallery a', {
     captionDelay: 250,
-    captionData: 'alt',
+    captionsData: 'alt',
   });
 }
