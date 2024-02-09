@@ -6,5 +6,5 @@ import"./assets/styles-c7f59cca.js";import{S as t}from"./assets/vendor-870f0eb5.
                             alt="${i}" 
                             />
                     </a>
-                </li>`).join("");n.innerHTML=o,new t(".gallery a",{captionDelay:250,captionData:"alt"})}
+                </li>`).join("");n.innerHTML=o,new t(".gallery a",{captionDelay:250,captionsData:"alt"})}
 //# sourceMappingURL=commonHelpers.js.map
