@@ -1,5 +1,7 @@
-const form = document.querySelector(".feedback-form");
-form.addEventListener("submit", handleSubmit);
+const form = document.querySelector('.feedback-form');
+form.addEventListener('submit', handleSubmit);
+
+const LS_Key = 'feedback-form-state';
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -7,8 +9,8 @@ function handleSubmit(event) {
   const email = form.elements.email.value.trim();
   const message = form.elements.message.value.trim();
 
-  if (email === "" || message === "") {
-    alert("All form fields must be filled in");
+  if (email === '' || message === '') {
+    alert('All form fields must be filled in');
     return;
   }
 
@@ -17,18 +19,10 @@ function handleSubmit(event) {
   form.reset();
 }
 
-const localStorageKey = "feedback-form-state";
+form.addEventListener('input', evt => {
+  const email = evt.currentTarget.elements.email.value;
+  const message = evt.currentTarget.elements.message.value;
+  const userData = { email, message };
 
-form.elements.email.value = localStorage.getItem(localStorageKey) ?? "";
-form.elements.message.value = localStorage.getItem(localStorageKey) ?? "";
-
-form.addEventListener("input", evt => {
-  console.log('email:', evt.currentTarget.elements.email.value);
-  console.log('message:', evt.currentTarget.elements.message.value);
-});
-
-form.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  localStorage.removeItem(localStorageKey);
-  form.reset();
+  localStorage.setItem(LS_Key, JSON.stringify(userData));
 });
