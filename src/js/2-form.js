@@ -5,24 +5,26 @@ function handleSubmit(event) {
   event.preventDefault();
   const form = event.target;
   const email = form.elements.email.value.trim();
-  const password = form.elements.password.value.trim();
+  const message = form.elements.message.value.trim();
 
-  if (email === "" || password === "") {
+  if (email === "" || message === "") {
     alert("All form fields must be filled in");
     return;
   }
 
-  const formData = { email, password };
+  const formData = { email, message };
   console.log(formData);
   form.reset();
 }
 
 const localStorageKey = "feedback-form-state";
 
+form.elements.email.value = localStorage.getItem(localStorageKey) ?? "";
 form.elements.message.value = localStorage.getItem(localStorageKey) ?? "";
 
 form.addEventListener("input", (evt) => {
-  localStorage.setItem(localStorageKey, evt.target.value);
+  localStorage.setItem(localStorageKey, evt.elements.email.target.value);
+  localStorage.setItem(localStorageKey, evt.elements.message.target.value);
 });
 
 form.addEventListener("submit", (evt) => {
