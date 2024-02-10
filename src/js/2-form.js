@@ -22,9 +22,9 @@ const localStorageKey = "feedback-form-state";
 form.elements.email.value = localStorage.getItem(localStorageKey) ?? "";
 form.elements.message.value = localStorage.getItem(localStorageKey) ?? "";
 
-form.addEventListener("input", (evt) => {
-  localStorage.setItem(localStorageKey, evt.elements.email.target.value);
-  localStorage.setItem(localStorageKey, evt.elements.message.target.value);
+form.addEventListener("input", evt => {
+  console.log('email:', evt.currentTarget.elements.email.value);
+  console.log('message:', evt.currentTarget.elements.message.value);
 });
 
 form.addEventListener("submit", (evt) => {
