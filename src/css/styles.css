@@ -51,13 +51,13 @@ gap: 8px;
 }
 input {
   width: 360px;
-height: 40px;
 flex-shrink: 0;
 border-radius: 4px;
 border: 1px solid #808080;
 display: flex;
 justify-content: center;
 align-items: center;
+padding: 14px 24px;
 }
 input:hover {
   border: 1px solid #000;
@@ -67,7 +67,7 @@ input:active {
 }
 textarea {
   width: 360px;
-height: 80px;
+  height: 80px;
 flex-shrink: 0;
 border-radius: 4px;
 border: 1px solid #808080;
@@ -75,6 +75,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 resize: none;
+padding: 14px 24px;
 }
 button {
   color: #FFF;

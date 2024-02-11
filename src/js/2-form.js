@@ -17,6 +17,7 @@ function handleSubmit(event) {
   const formData = { email, message };
   console.log(formData);
   form.reset();
+  localStorage.removeItem(LS_Key)
 }
 
 form.addEventListener('input', evt => {
@@ -26,3 +27,7 @@ form.addEventListener('input', evt => {
 
   localStorage.setItem(LS_Key, JSON.stringify(userData));
 });
+
+function renderPage() {
+  localStorage.getItem(LS_Key, JSON.parse(userData));
+};
