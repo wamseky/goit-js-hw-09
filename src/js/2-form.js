@@ -29,5 +29,13 @@ form.addEventListener('input', evt => {
 });
 
 function renderPage() {
-  localStorage.getItem(LS_Key, JSON.parse(userData));
+ const lsData = JSON.parse(localStorage.getItem(LS_Key));
+ console.log(lsData);
+
+ if (lsData) {
+  const { email, message } = form.elements;
+  message.value = lsData.message;
+  email.value = lsData.email;
+ }
 };
+renderPage();
